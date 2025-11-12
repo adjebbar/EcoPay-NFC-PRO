@@ -1,7 +1,24 @@
 # sheets_service.py
+import os
+import json
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from config import GOOGLE_SHEET_ID
+
+# -------------------
+# Création du fichier credentials.json depuis la variable d'environnement (Render)
+# -------------------
+GOOGLE_CREDS_JSON = os.environ.get("GOOGLE_CREDS_JSON")
+if GOOGLE_CREDS_JSON:
+    try:
+        with open("credentials.json", "w") as f:
+            parsed = json.loads(GOOGLE_CREDS_JSON)
+            json.dump(parsed, f)
+        print("✅ credentials.json créé depuis GOOGLE_CREDS_JSON")
+    except Exception as e:
+        print(f"⚠️ Impossible de créer credentials.json : {e}")
+else:
+    print("⚠️ GOOGLE_CREDS_JSON non défini, utilisez un fichier credentials.json localement")
 
 # -------------------
 # Configuration de l'accès Google Sheets
@@ -76,4 +93,3 @@ def get_sheet_data(sheet_name=None):
     except Exception as e:
         print(f"Erreur inattendue : {e}")
         return {}
-
