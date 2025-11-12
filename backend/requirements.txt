@@ -1,0 +1,4 @@
+Flask
+chargily-pay
+gspread
+oauth2client

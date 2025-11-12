@@ -1,0 +1,9 @@
+vendor_id,vendor_name,product_id,product_name,price_dzd,category,image_url
+123,Café Express,ESP01,Expresso 30ml,250,Café,https://images.unsplash.com/photo-1598514983214-9f6b63b9f191?auto=format&fit=crop&w=500&q=80
+123,Café Express,CAF02,Cappuccino 200ml,400,Café,https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80
+123,Café Express,CAF03,Latte 250ml,450,Café,https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=500&q=80
+123,Café Express,TEA01,Thé vert 250ml,300,Thé,https://images.unsplash.com/photo-1520962911060-118f15b03b14?auto=format&fit=crop&w=500&q=80
+123,Café Express,TEA02,Thé noir 200ml,280,Thé,https://images.unsplash.com/photo-1556912167-f556f1f39d48?auto=format&fit=crop&w=500&q=80
+123,Café Express,JUS01,Jus d'orange 300ml,350,Jus,https://images.unsplash.com/photo-1580910051074-5c3c9b5e40b2?auto=format&fit=crop&w=500&q=80
+123,Café Express,JUS02,Jus de pomme 300ml,350,Jus,https://images.unsplash.com/photo-1571046759496-3f086d8d98b6?auto=format&fit=crop&w=500&q=80
+

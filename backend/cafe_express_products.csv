@@ -1,0 +1,12 @@
+vendor_id,vendor_name,product_id,product_name,price,category,description,image_url
+123,Café Express,CFE_ESP1,Espresso Classique,500,Boissons,Espresso intense et crémeux,https://images.unsplash.com/photo-espresso?auto=format&fit=crop&w=500&q=80
+123,Café Express,CFE_CAP1,Cappuccino,700,Boissons,Café avec mousse de lait onctueuse,https://images.unsplash.com/photo-cappuccino?auto=format&fit=crop&w=500&q=80
+123,Café Express,CFE_LAT1,Latte Macchiato,750,Boissons,Latte doux avec un nuage de lait,https://images.unsplash.com/photo-latte?auto=format&fit=crop&w=500&q=80
+123,Café Express,CFE_AMC1,Americano,550,Boissons,Café long et léger,https://images.unsplash.com/photo-americano?auto=format&fit=crop&w=500&q=80
+123,Café Express,CFE_CAK1,Tarte au chocolat,1200,Pâtisseries,Tarte riche et fondante au chocolat,https://images.unsplash.com/photo-chocolatetart?auto=format&fit=crop&w=500&q=80
+123,Café Express,CFE_MUFF1,Muffin aux myrtilles,600,Pâtisseries,Muffin moelleux avec des myrtilles fraîches,https://images.unsplash.com/photo-muffin?auto=format&fit=crop&w=500&q=80
+123,Café Express,CFE_CRO1,Croissant au beurre,500,Pâtisseries,Croissant doré et feuilleté,https://images.unsplash.com/photo-croissant?auto=format&fit=crop&w=500&q=80
+123,Café Express,CFE_SAND1,Sandwich Poulet,900,Snacks,Sandwich frais avec poulet grillé,https://images.unsplash.com/photo-sandwich?auto=format&fit=crop&w=500&q=80
+123,Café Express,CFE_SAND2,Sandwich Végétarien,850,Snacks,Sandwich frais aux légumes,https://images.unsplash.com/photo-vegetariansandwich?auto=format&fit=crop&w=500&q=80
+123,Café Express,CFE_JUICE1,Jus d’orange frais,450,Boissons,Jus pressé d’oranges fraîches,https://images.unsplash.com/photo-orangejuice?auto=format&fit=crop&w=500&q=80
+
