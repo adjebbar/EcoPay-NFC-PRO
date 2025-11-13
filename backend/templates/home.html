@@ -5,76 +5,248 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ vendor.name }} - Menu</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+{# 🎨 Thèmes et bannières dynamiques selon vendor_id #}
+{% set themes = {
+  "sweet_bakery": {
+    "main": "#ff80ab",
+    "accent": "#f8bbd0",
+    "text": "#4a148c",
+    "bg": "#fff0f5",
+    "banner": "https://images.unsplash.com/photo-1608198093002-ad4e005484f2?auto=format&fit=crop&w=1600&q=80",
+    "logo": "https://img.icons8.com/color/96/cupcake.png"
+  },
+  "eco_store": {
+    "main": "#2e7d32",
+    "accent": "#81c784",
+    "text": "#ffffff",
+    "bg": "#f1f8e9",
+    "banner": "https://images.unsplash.com/photo-1604335399108-c9b90881f47b?auto=format&fit=crop&w=1600&q=80",
+    "logo": "https://img.icons8.com/color/96/leaf.png"
+  },
+  "tech_shop": {
+    "main": "#1565c0",
+    "accent": "#64b5f6",
+    "text": "#ffffff",
+    "bg": "#f0f4f8",
+    "banner": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80",
+    "logo": "https://img.icons8.com/color/96/laptop.png"
+  },
+  "flower_bloom": {
+    "main": "#8e24aa",
+    "accent": "#f48fb1",
+    "text": "#ffffff",
+    "bg": "#fce4ec",
+    "banner": "https://images.unsplash.com/photo-1498568715251-9183681dabc6?auto=format&fit=crop&w=1600&q=80",
+    "logo": "https://img.icons8.com/color/96/flower.png"
+  },
+  "cafe_express": {
+    "main": "#6b4226",
+    "accent": "#d2691e",
+    "text": "#ffffff",
+    "bg": "#f8f8f8",
+    "banner": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80",
+    "logo": "https://img.icons8.com/color/96/coffee-to-go.png"
+  }
+} %}
+{% set theme = themes.get(vendor_id, themes['cafe_express']) %}
+
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat', sans-serif; }
-body { background:#f8f8f8; color:#333; }
-header { background:#6b4226; color:#fff; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
-header h1 { font-family:Georgia, serif; font-size:28px; letter-spacing:2px; }
-nav a { color:#fff; text-decoration:none; margin-left:20px; font-weight:bold; }
-nav a:hover { text-decoration:underline; }
-.hero { background:#d2691e; height:220px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:36px; font-weight:bold; }
-.categories { padding:20px 40px; text-align:center; }
-.categories button { margin:5px; padding:10px 20px; border:none; border-radius:8px; background:#6b4226; color:white; cursor:pointer; transition:0.2s; }
-.categories button:hover { background:#543218; }
-.products { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; padding:20px 40px; }
-.product-card { background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition:0.2s; }
-.product-card:hover { transform:translateY(-5px); box-shadow:0 6px 20px rgba(0,0,0,0.2); }
-.product-card img { width:100%; height:180px; object-fit:cover; }
+body { background: {{ theme.bg }}; color:#333; }
+
+header {
+  background: {{ theme.main }};
+  color: {{ theme.text }};
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+header h1 {
+  font-family:'Georgia', serif;
+  font-size:26px;
+  letter-spacing:1px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+header img.logo {
+  width:40px;
+  height:40px;
+  border-radius:50%;
+}
+nav a {
+  color:{{ theme.text }};
+  text-decoration:none;
+  margin-left:20px;
+  font-weight:bold;
+  transition:0.3s;
+}
+nav a:hover {
+  color:{{ theme.accent }};
+}
+
+.hero {
+  height:280px;
+  background:url('{{ theme.banner }}') center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  text-shadow:0 2px 5px rgba(0,0,0,0.5);
+}
+.hero h2 {
+  font-size:38px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.hero p {
+  font-size:18px;
+  opacity:0.9;
+}
+
+.categories {
+  padding:25px 40px;
+  text-align:center;
+}
+.categories button {
+  margin:5px;
+  padding:10px 22px;
+  border:none;
+  border-radius:20px;
+  background: {{ theme.main }};
+  color:white;
+  cursor:pointer;
+  transition:all 0.25s ease;
+  font-weight:bold;
+}
+.categories button:hover {
+  background: {{ theme.accent }};
+  transform:translateY(-2px);
+  box-shadow:0 3px 8px rgba(0,0,0,0.2);
+}
+
+.products {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+  gap:25px;
+  padding:20px 40px;
+}
+.product-card {
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  transition:all 0.3s ease;
+}
+.product-card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 6px 20px rgba(0,0,0,0.25);
+}
+.product-card img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
 .product-card .content { padding:15px; }
-.product-card h3 { font-size:20px; margin-bottom:10px; }
-.product-card p { font-size:14px; color:#666; margin-bottom:10px; }
-.product-card .price { font-weight:bold; margin-bottom:10px; }
-.product-card a { display:inline-block; text-decoration:none; background:#6b4226; color:#fff; padding:10px 20px; border-radius:6px; }
-.product-card a:hover { background:#543218; }
-footer { text-align:center; padding:20px; background:#6b4226; color:#fff; margin-top:40px; }
+.product-card h3 {
+  font-size:20px;
+  margin-bottom:8px;
+  color:#333;
+}
+.product-card p {
+  font-size:14px;
+  color:#777;
+  margin-bottom:10px;
+  min-height:40px;
+}
+.product-card .price {
+  font-weight:bold;
+  color:{{ theme.main }};
+  margin-bottom:10px;
+}
+.product-card a {
+  display:inline-block;
+  text-decoration:none;
+  background: {{ theme.main }};
+  color:#fff;
+  padding:10px 20px;
+  border-radius:8px;
+  transition:0.3s;
+}
+.product-card a:hover {
+  background: {{ theme.accent }};
+  box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  background: {{ theme.main }};
+  color: {{ theme.text }};
+  margin-top:40px;
+  font-size:14px;
+}
+
 .hidden { display:none; }
 </style>
+
 <script>
 function filterCategory(cat) {
-    let cards = document.querySelectorAll('.product-card');
-    cards.forEach(c => {
-        if(cat === 'All' || c.dataset.category === cat) {
-            c.classList.remove('hidden');
-        } else {
-            c.classList.add('hidden');
-        }
-    });
+  document.querySelectorAll('.product-card').forEach(c => {
+    if(cat === 'All' || c.dataset.category === cat) c.classList.remove('hidden');
+    else c.classList.add('hidden');
+  });
 }
 </script>
 </head>
+
 <body>
 <header>
-    <h1>{{ vendor.name }}</h1>
-    <nav>
-        <a href="#menu">Menu</a>
-        <a href="#contact">Contact</a>
-    </nav>
+  <h1>
+    <img src="{{ theme.logo }}" class="logo" alt="logo">
+    {{ vendor.name }}
+  </h1>
+  <nav>
+    <a href="#menu">Menu</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<div class="hero">Bienvenue chez {{ vendor.name }}</div>
+<section class="hero">
+  <h2>Bienvenue chez {{ vendor.name }}</h2>
+  <p>Découvrez nos produits {{ vendor.category or 'exclusifs' }}</p>
+</section>
 
 <div class="categories">
-    <button onclick="filterCategory('All')">Tous</button>
-    {% for cat in categories %}
+  <button onclick="filterCategory('All')">Tous</button>
+  {% for cat in categories %}
     <button onclick="filterCategory('{{ cat }}')">{{ cat }}</button>
-    {% endfor %}
+  {% endfor %}
 </div>
 
 <section id="menu" class="products">
-{% for pid, product in vendor.products.items() %}
-<div class="product-card" data-category="{{ product.category }}">
+  {% for pid, product in vendor.products.items() %}
+  <div class="product-card" data-category="{{ product.category }}">
     <img src="{{ product.image or 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80' }}" alt="{{ product.name }}">
     <div class="content">
-        <h3>{{ product.name }}</h3>
-        <p>{{ product.description or '' }}</p>
-        <div class="price">{{ product.price }} DZD</div>
-        <a href="/pay?vendor_id={{ vendor_id }}&product_id={{ pid }}">Commander</a>
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description or '' }}</p>
+      <div class="price">{{ product.price }} DZD</div>
+      <a href="/pay?vendor_id={{ vendor_id }}&product_id={{ pid }}">Commander</a>
     </div>
-</div>
-{% endfor %}
+  </div>
+  {% endfor %}
 </section>
 
-<footer id="contact">© 2025 {{ vendor.name }} - Tous droits réservés</footer>
+<footer id="contact">
+  © 2025 {{ vendor.name }} - Tous droits réservés
+</footer>
 </body>
 </html>
 
